@@ -1,3 +1,7 @@
+# lib/data_structures.py
+
+# lib/data_structures.py
+
 spicy_foods = [
     {
         "name": "Green Curry",
@@ -16,23 +20,34 @@ spicy_foods = [
     },
 ]
 
-def get_names(spicy_foods):
-    pass
+# 1. Return list of names
+def get_names(foods):
+    return [food["name"] for food in foods]
 
-def get_spiciest_foods(spicy_foods):
-    pass
+# 2. Return foods with heat_level > 5
+def get_spiciest_foods(foods):
+    return [food for food in foods if food["heat_level"] > 5]
 
-def print_spicy_foods(spicy_foods):
-    pass
+# 3. Print foods in the required format
+def print_spicy_foods(foods):
+    for food in foods:
+        print(f'{food["name"]} ({food["cuisine"]}) | Heat Level: {"🌶" * food["heat_level"]}')
 
-def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
+# 4. Find food by cuisine
+def get_spicy_food_by_cuisine(foods, cuisine):
+    for food in foods:
+        if food["cuisine"] == cuisine:
+            return food
 
-def print_spiciest_foods(spicy_foods):
-    pass
+# 5. Print only spiciest foods
+def print_spiciest_foods(foods):
+    spiciest = get_spiciest_foods(foods)
+    print_spicy_foods(spiciest)
 
 def get_average_heat_level(spicy_foods):
-    pass
+    return sum(food["heat_level"] for food in spicy_foods) // len(spicy_foods)
 
-def create_spicy_food(spicy_foods, spicy_food):
-    pass
+# 7. Add a new spicy food
+def create_spicy_food(foods, new_food):
+    foods.append(new_food)
+    return foods
